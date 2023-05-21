@@ -1,8 +1,4 @@
-cloudpickle
 Flask
-Flask-Cors==3.0.10
-gunicorn==20.1.0
-html5lib==1.1
 json5
 jsonschema
 jupyter
@@ -18,15 +14,10 @@ matplotlib
 matplotlib-inline
 numpy
 numpydoc
-olefile
-openpyxl==3.0.10
 pandas
 pandocfilters
 py
-py-lets-be-rational==1.0.1
-py-vollib==1.0.1
 scikit-image
 scikit-learn
-scikit-learn-intelex==2021.20221004.171935
 scipy==1.9.1
 seaborn
