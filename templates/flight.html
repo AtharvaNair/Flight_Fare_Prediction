@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flight Fare Prediction</title>
+	<link rel="stylesheet" href="style.css">
+	<!-- <script src="script.js"></script> -->
+</head>
+<style>
+body {
+	font-family: 'Times New Roman', Times, serif;
+  background-image: url('{{ url_for('static', filename='images/nils-nedel-ONpGBpns3cs-unsplash.jpg') }}');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+h1 {
+	text-align: center;
+  margin-top: 50px;
+  font-weight: bolder;
+}
+
+form {
+	width: 50%;
+	margin: auto;
+	/* border: 1px solid #ccc; */
+	padding: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: 70px;
+  
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-weight: bold;
+  /* padding: 10px; */
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight:500;
+}
+option{
+  color: black;
+}
+
+button[type="submit"] {
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+	background-color: #45a049;
+}
+
+prediction_text {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+
+select {
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+</style>
+<body>
+	<h1>Flight Fare Prediction</h1>
+	<form  method="POST" action="{{ url_for('predict') }}">
+        <label for="airline">Airline:</label>
+        <select id="airline" name="airline" size="1">
+          <option value="IndiGo">IndiGo</option>
+          <option value="Air India">Air India</option>
+          <option value="Jet Airways">Jet Airways</option>
+          <option value="SpiceJet">SpiceJet</option>
+          <option value="Multiple carriers">Multiple carriers</option>
+          <option value="GoAir">GoAir</option>
+          <option value="Vistara">Vistara</option>
+          <option value="Air Asia">Air Asia</option>
+          <option value="Vistara Premium economy">Vistara Premium economy</option>
+          <option value="Jet Airways Business">Jet Airways Business</option>
+          <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+        </select>
+      
+        <br>
+      
+        <label for="date">Date of Journey:</label>
+        <input type="date" id="date" name="date">
+      
+        <br>
+      
+        <label for="source">Source:</label>
+        <select id="source" name="source" size="1">
+          <option value="Banglore">Banglore</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+      
+        <br>
+      
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination" size="1">
+          <option value="New Delhi">New Delhi</option>
+          <option value="Banglore">Banglore</option>
+          <option value="Cochin">Cochin</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </select>
+      
+        <br>
+      
+        <label for="dep-time">Departure Time:</label>
+        <input type="time" id="dep-time" name="dep-time">
+      
+        <br>
+      
+        <label for="arr-time">Arrival Time:</label>
+        <input type="time" id="arr-time" name="arr-time">
+      
+        <br>
+      
+        <!-- <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration"> -->
+      
+        <br>
+      
+        <label for="stops">Total Stops:</label>
+        <input type="text" id="stops" name="stops">
+      
+        <br>
+      
+        <!-- <button type="button" value="predict">Predict Price</button> -->
+        <input type="submit" value="Predict">
+      
+        <br>
+      
+        <div id="prediction_text",color="white"> {{prediction_text}} </div>
+      </form>
+</body>
+</html>
+
+
